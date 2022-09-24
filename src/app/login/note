@@ -14,3 +14,4 @@
 view to component 
  1.2.1 event binding (event Name)="functionName()"
        event binding using $event (event Name)="functionName($event)"
+       event binding using template
