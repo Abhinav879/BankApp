@@ -1,0 +1,16 @@
+
+
+      htmt to ts
+    view to component
+     using some method to convert dataa
+        
+
+1.one by binding(one way binding)
+ 1.1 component to view
+  1.1.1  string interpolation  {{}}
+  1.1.2  property biting [property]="value"
+
+
+view to component 
+ 1.2.1 event binding (event Name)="functionName()"
+       event binding using $event (event Name)="functionName($event)"
