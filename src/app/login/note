@@ -12,6 +12,10 @@
 
 
 view to component 
- 1.2.1 event binding (event Name)="functionName()"
-       event binding using $event (event Name)="functionName($event)"
-       event binding using template
+  1.2.1 event binding (event Name)="functionName()"
+  1.2.2 event binding using $event (event Name)="functionName($event)"
+  1.2.3 event binding using template rendering variable #variable_name
+
+
+2.two way binding
+  2.1 ngModel
