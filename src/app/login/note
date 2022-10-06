@@ -35,8 +35,17 @@ to store rededent database('Duplicate data')
 ng g s service_name  -----for creating services
 
 
+
+" npm i   -- to install node package module while cloning angular project "
+
+
 validating inputs
 
  angular form validation
-    1.template driven form
-    2.model driven form
+    1.template driven form -- html "dificult method"
+    2.model driven form  --ts
+     2.1-Reactive form
+        "must needed" (form group
+                       array
+                       controller)
+

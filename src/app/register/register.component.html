@@ -1,16 +1,16 @@
-<form action="">
+<form action="" (ngSubmit)="register()" [formGroup]="registerForm">
     <div>
         <h1 class="text-center">Registration Here</h1>
         <form action="">
         <div class="container w-100 mt-2 p-3">
         <div class="p-2">
-            <input type="text" name="uname" id="unameid" placeholder="Username" [(ngModel)]="uname" class="form-control">
+            <input type="text" name="uname" id="unameid" placeholder="Username" formControlName="uname" class="form-control">
         </div>
         <div class="p-2">
-            <input type="text" name="acno" id="accnumid" placeholder="AC Number" [(ngModel)]="acno"  class="form-control">
+            <input type="text" name="acno" id="accnumid" placeholder="AC Number" formControlName="acno"  class="form-control">
         </div>
         <div class="p-2">
-            <input type="password" name="pswd" id="pasid" placeholder="Password" [(ngModel)]="pswd" class="form-control">
+            <input type="password" name="pswd" id="pasid" placeholder="Password" formControlName="pswd" class="form-control">
         </div>
         <div class="p-2 text-center">
             <button (click)="register()" type="button" class="btn btn-info border border-dark">Register</button>

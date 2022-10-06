@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -12,14 +13,19 @@ export class RegisterComponent implements OnInit {
   acno=""
   pswd=""
 
-  constructor(private ds:DataService,private router:Router) { }
+  //model to registration form
+  registerForm=this.fb.group({uname:["",[Validators.required,Validators.pattern('[a-zA-Z]+')]],acno:["",[]],pswd:["",[]]})
+
+  constructor(private fb:FormBuilder,private ds:DataService,private router:Router) { }
 
   ngOnInit(): void {
   }
   register(){
-    var uname=this.uname
-    var acno=this.acno
-    var pswd=this.pswd
+    var uname=this.registerForm.value.uname
+    var acno=this.registerForm.value.acno
+    var pswd=this.registerForm.value.pswd
+
+
     const result=this.ds.register(acno,uname,pswd)
     if(result){
       alert("registered")
