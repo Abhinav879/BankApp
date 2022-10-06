@@ -1,0 +1,42 @@
+<!-- <span><h1>dashboard of BankApp</h1></span> -->
+<div class="welcome"><h1>Welcome {{user}}!!</h1></div>
+<div class=""><a routerLink="/transaction">Transation History</a></div>
+    <div>
+        <h3 class="header"><u>deposit</u></h3>
+        <form action="" (ngSubmit)="deposit()">
+        <div class="container w-100 mt-2 p-3">
+        <div class="p-2">
+            <input type="text" name="acnum" id="accnum" placeholder="Ac Number" [(ngModel)]="acnum" class="form-control">
+        </div>
+        <div class="p-2">
+            <input type="password" name="pswrd" id="pswd" placeholder="password" [(ngModel)]="pswrd" class="form-control">
+        </div>
+        <div class="p-2">
+            <input type="text" name="amnt" id="amnt" placeholder="Amount" [(ngModel)]="amnt" class="form-control">
+        </div>
+        <div class="p-2 text-center">
+            <button type="submit" class="btn btn-secondary border border-dark">deposit</button>
+        </div>
+   </div>
+   </form>
+</div><br>
+<hr>
+    <div>
+        <h3 class="header"><u>Withdraw</u></h3>
+        <form action="" (ngSubmit)="withdraw()">
+        <div class="container w-100 mt-2 p-3">
+        <div class="p-2">
+            <input type="text" name="acnumber1" id="acnum1" placeholder="Ac Number" [(ngModel)]="acnum1" class="form-control">
+        </div>
+        <div class="p-2">
+            <input type="password" name="password1" id="pswd1" placeholder="password" [(ngModel)]="pswrd1" class="form-control">
+        </div>
+        <div class="p-2">
+            <input type="text" name="amount1" id="amnt1" placeholder="Amount" [(ngModel)]="amnt1" class="form-control">
+        </div>
+        <div class="p-2 text-center">
+            <button  type="submit" class="btn btn-secondary border border-dark">withdraw</button>
+        </div>
+   </div>
+   </form>
+</div>

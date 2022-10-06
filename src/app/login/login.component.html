@@ -1,6 +1,6 @@
 <div class="aa">
-    <form action="">
-    <h2>Sign In</h2>
+    <form action="" (ngSubmit)="Login()">
+    <h2 id="in">SIGN IN</h2>
     <div class="p-2">
         <i class="fa-solid fa-key fa-1x ii"></i>
         <input name="acnum" type="text" id="acid" [placeholder]="acnt" [(ngModel)]="acno" class="input-box">
@@ -11,14 +11,15 @@
         <input name="psw" type="password" id="paswd" placeholder="password" [(ngModel)]="pswd" class="input-box">
     </div> 
     <div class="P-2 text-center">
-        <button (click)="Login()" type="button" class="button">SIGN IN</button>
+        <button type="submit" class="button">SIGN IN</button>
     </div>
-    <p><SPAN> Do you have a account?</SPAN><button onclick="" type="button" class="btn btn-outline-info m-2 bg-secondary">create</button>
-    </p>
+    <p><SPAN> Do you have a account?</SPAN><a routerLink="register">Register</a></p>
+
+        <!-- <button onclick="" type="button" class="btn btn-outline-info m-2 bg-secondary">create</button> -->
  </form>
  <!-- <hr>
  <p class="or">or</p> -->
 </div>
-<h2 class="">{{aim}}</h2>
+<h2 class="aa">{{aim}}</h2>
 
 

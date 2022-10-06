@@ -1,0 +1,23 @@
+
+<!-- structural dierective  *ngFor-- can apply direcrtly in html to access  data from array -->
+
+<div class="p-3"><h3>Transaction History</h3></div>
+<table  class="border w-100 container text-center">
+    <thead>
+        <tr>
+            <th class="border">type</th>
+            <th class="border">Amount</th>
+        </tr>
+    </thead>
+    <tr *ngFor="let i of transaction">
+        <td class="border">{{i.type}}</td>
+        <td class="border">{{i.amount}}</td>
+    </tr>
+    <!-- <tr>
+        <td class="border">debit</td>
+        <td class="border">1900</td>
+    </tr> -->
+    <tbody id="result">
+    </tbody>
+</table>
+<div class="homelink p-2"><a routerLink="/dashboard">Home</a></div>

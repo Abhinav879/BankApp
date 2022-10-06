@@ -18,4 +18,25 @@ view to component
 
 
 2.two way binding
-  2.1 ngModel
+  2.1 ngModel   -- formmdulex\d
+
+
+
+Redirection  in ts
+..............
+method -- navigateByUrl ----  in- router class method
+
+"dependency injection"-data sharing btw two depend classes
+
+"Angular services" 
+..........
+to store rededent database('Duplicate data')
+
+ng g s service_name  -----for creating services
+
+
+validating inputs
+
+ angular form validation
+    1.template driven form
+    2.model driven form
