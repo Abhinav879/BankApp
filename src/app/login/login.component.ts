@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { DataService } from '../services/data.service';
 
@@ -15,28 +16,38 @@ export class LoginComponent implements OnInit {
   acno=""
   pswd=""
 
-  userDetails:any={
-    1000:{acno:1000,username:"Abhinav",password:1234,balance:1000000},
-    1001:{acno:1001,username:"Anju",password:1234,balance:200000},
-    1002:{acno:1002,username:"Akhila",password:1234,balance:300000},
-    1003:{acno:1003,username:"Arjun",password:1234,balance:400000},
-  }
+  loginForm=this.fb.group({
+    acno:["",[Validators.required,Validators.pattern('[0-9]+')]],
+    pswd:["",[Validators.required,Validators.pattern('[a-zA-Z0-9]+')]],})
 
-  constructor(private router:Router,private ds:DataService) { }
+
+  // userDetails:any={
+  //   1000:{acno:1000,username:"Abhinav",password:1234,balance:1000000},
+  //   1001:{acno:1001,username:"Anju",password:1234,balance:200000},
+  //   1002:{acno:1002,username:"Akhila",password:1234,balance:300000},
+  //   1003:{acno:1003,username:"Arjun",password:1234,balance:400000},
+  // }
+  constructor(private router:Router,private ds:DataService,private fb:FormBuilder) { }
 
   ngOnInit(): void {
   }
   
   Login(){
-    var acnum=this.acno
-    var pswd=this.pswd
+    var acno=this.loginForm.value.acno
+    var pswd=this.loginForm.value.pswd
 
-    const result=this.ds.Login(acnum,pswd)
-    if(result){
-      alert('login success')
-      this.router.navigateByUrl('dashboard')
+    const result=this.ds.Login(acno,pswd)
+    if(this.loginForm.valid){
+      if(result){
+        alert('login success')
+        this.router.navigateByUrl('dashboard')
+      }
     }
-  }
+    else{
+      alert("invalid login")
+    }
+  
+    }
 }
 
 // ### method

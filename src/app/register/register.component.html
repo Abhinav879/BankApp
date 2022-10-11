@@ -1,20 +1,23 @@
+
 <form action="" (ngSubmit)="register()" [formGroup]="registerForm">
-    <div>
-        <h1 class="text-center">Registration Here</h1>
-        <form action="">
-        <div class="container w-100 mt-2 p-3">
+     <h1 class="text-center">Registration Here</h1>
+     <div class="container w-100 mt-2 p-3">
         <div class="p-2">
             <input type="text" name="uname" id="unameid" placeholder="Username" formControlName="uname" class="form-control">
         </div>
+        <!-- *ngIf -->
+        <div *ngIf="this.registerForm.get('uname')?.errors&&this.registerForm.get('uname')?.touched" class="text-danger"><p>invalid username</p></div>
         <div class="p-2">
             <input type="text" name="acno" id="accnumid" placeholder="AC Number" formControlName="acno"  class="form-control">
         </div>
+        <div *ngIf="this.registerForm.get('acno')?.errors&&this.registerForm.get('acno')?.touched" class="text-danger"><p>invalid AC Number</p></div>
         <div class="p-2">
             <input type="password" name="pswd" id="pasid" placeholder="Password" formControlName="pswd" class="form-control">
         </div>
+        <div *ngIf="this.registerForm.get('pswd')?.errors&&this.registerForm.get('pswd')?.touched" class="text-danger"><p>invalid password</p></div>
         <div class="p-2 text-center">
-            <button (click)="register()" type="button" class="btn btn-info border border-dark">Register</button>
+            <button type="submit" class="btn btn-info border border-dark">Register</button>
         </div>
-   </div>
+    </div>
 </form>
 

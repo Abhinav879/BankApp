@@ -1,15 +1,17 @@
 <div class="aa">
-    <form action="" (ngSubmit)="Login()">
+    <form action="" (ngSubmit)="Login()" [formGroup]="loginForm">
     <h2 id="in">SIGN IN</h2>
     <div class="p-2">
         <i class="fa-solid fa-key fa-1x ii"></i>
-        <input name="acnum" type="text" id="acid" [placeholder]="acnt" [(ngModel)]="acno" class="input-box">
+        <input name="acnum" type="text" id="acid" [placeholder]="acnt" formControlName="acno" class="input-box">
         <!-- ((change)="acnoChange(event)") -->
     </div>
+    <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger"><p>invalid Ac Number</p></div>
     <div class="p-2">
         <i class="fa-solid fa-lock fa-1x ii"></i>
-        <input name="psw" type="password" id="paswd" placeholder="password" [(ngModel)]="pswd" class="input-box">
-    </div> 
+        <input name="psw" type="password" id="paswd" placeholder="password" formControlName="pswd" class="input-box">
+    </div>
+    <div *ngIf="this.loginForm.get('pswd')?.errors&&this.loginForm.get('pswd')?.touched" class="text-danger"><p>invalid password</p></div>
     <div class="P-2 text-center">
         <button type="submit" class="button">SIGN IN</button>
     </div>

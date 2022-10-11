@@ -49,3 +49,8 @@ validating inputs
                        array
                        controller)
 
+  local storage in angular
+  setItem()
+  getItem()  
+  removeItem()                   
+
