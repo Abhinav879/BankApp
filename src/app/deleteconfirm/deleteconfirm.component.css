@@ -1,0 +1,6 @@
+.deleteconfirm{
+    text-align: center;
+    background:rgba(128, 128, 128, 0.5);
+    box-shadow: 0 0 3px 0 rgb(0,0,0,0.3);
+    width: 400px;
+}

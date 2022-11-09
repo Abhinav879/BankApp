@@ -52,5 +52,12 @@ validating inputs
   local storage in angular
   setItem()
   getItem()  
-  removeItem()                   
+  removeItem()       
+  
+  -import HttpClientModule
+    -class name HttpClient
+
+api request is a asynchronous request so to solve asynchronous request
+in ts we use RxJs method observable....      resolve...subscribe()     //in angular  
+                        (js promise)....     reject..catch()            // server
 

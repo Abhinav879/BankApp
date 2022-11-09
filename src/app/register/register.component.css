@@ -1,5 +1,22 @@
 
-h1{
-    color:rgb(217, 197, 98);
+.container{
+    width: 25%;
+}
+@media (max-width:500px){
+    .container {
+        width: 100%;
+    }
+}
+.form-control{
+    border-radius: 10px;
+
+}
+
+
+h2{
+    color:rgb(241, 241, 236);
     font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.register{
+    margin-top: 150px;
 }

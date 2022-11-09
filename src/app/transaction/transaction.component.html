@@ -2,11 +2,11 @@
 <!-- structural dierective  *ngFor-- can apply direcrtly in html to access  data from array -->
 
 <div class="p-3"><h3>Transaction History</h3></div>
-<table  class="border w-100 container text-center">
+<table  class="border container text-center">
     <thead>
         <tr>
-            <th class="border">type</th>
-            <th class="border">Amount</th>
+            <th class="border">TYPE</th>
+            <th class="border">AMOUNT</th>
         </tr>
     </thead>
     <tr *ngFor="let i of transaction">
@@ -20,4 +20,4 @@
     <tbody id="result">
     </tbody>
 </table>
-<div class="homelink p-2"><a routerLink="/dashboard">Home</a></div>
+<div class="homelink p-2"><a class="home" routerLink="/dashboard">Home</a></div>

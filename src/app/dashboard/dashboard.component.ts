@@ -12,9 +12,9 @@ export class DashboardComponent implements OnInit {
   
   user=""
 
-  acnum=""
-  pswrd=""
-  amnt=""
+  // acnum=""
+  // pswrd=""
+  // amnt=""
 
   depositForm=this.fb.group({
     acnum:["",[Validators.required,Validators.pattern('[0-9]+')]],
@@ -22,9 +22,9 @@ export class DashboardComponent implements OnInit {
    amnt:["",[Validators.required,Validators.pattern('[0-9]+')]],})
 
 
-  acnum1=""
-  pswrd1=""
-  amnt1=""
+  // acnum1=""
+  // pswrd1=""
+  // amnt1=""
 
   withdrawForm=this.fb.group({
     acnum1:["",[Validators.required,Validators.pattern('[0-9]+')]],
@@ -32,14 +32,21 @@ export class DashboardComponent implements OnInit {
     amnt1:["",[Validators.required,Validators.pattern('[0-9]+')]],})
 
 
+    acno:any 
+
+    sDetails:any
 
 
   constructor(private ds:DataService,private fb:FormBuilder,private router:Router) {
-    this.user=this.ds.currentUser
+    if(localStorage.getItem('currentUser')){
+      this.user=JSON.parse(localStorage.getItem('currentUser') || '') 
+    }
+
+    this.sDetails=new Date()
    }
 
   ngOnInit(): void {
-    if(!localStorage.getItem('currentAcno')){
+    if(!localStorage.getItem('token')){
       alert("please login first")
       this.router.navigateByUrl('')
     }
@@ -50,14 +57,16 @@ export class DashboardComponent implements OnInit {
     var pswrd=this.depositForm.value.pswrd
     var amnt=this.depositForm.value.amnt
 
-    const result=this.ds.deposit(acnum,pswrd,amnt)
     if(this.depositForm.valid){
-      if(result){                                                     //otherthen false statement are true
-        alert(`${amnt} is credited,new balance is ${result}`)
-      }
+   this.ds.deposit(acnum,pswrd,amnt).subscribe((result:any)=>{
+      alert(result.Message)
+    },
+    result=>{
+      alert(result.error.Message)
+    })
     }
     else{
-      alert("invalid")
+      alert("invalid form")
     }
   }
 
@@ -66,21 +75,49 @@ export class DashboardComponent implements OnInit {
     var pswrd1=this.withdrawForm.value.pswrd1
     var amnt1=this.withdrawForm.value.amnt1
 
-    const result=this.ds.withdraw(acnum1,pswrd1,amnt1)
     if(this.withdrawForm.valid){
-      if(result){                                                   
-        alert(`${amnt1} is debited,new balance is ${result}`)
-      }
+   this.ds.withdraw(acnum1,pswrd1,amnt1).subscribe((result:any)=>{
+      alert(result.Message)
+    },
+    result=>{
+      alert(result.error.Message)
+    })
     }
+    // if(this.withdrawForm.valid){
+    //   if(result){                                                   
+    //     alert(`${amnt1} is debited,new balance is ${result}`)
+    //   }
+    // }
     else{
-      alert("invalid")
+      alert("invalid form")
     }
  }
 
  logout(){
   localStorage.removeItem('currentUser')
   localStorage.removeItem('currentAcno')
+  localStorage.removeItem('token')
+
   this.router.navigateByUrl("")
  }
 
+ deleteconfirm(){
+  this.acno=JSON.parse(localStorage.getItem('currentAcno') || '')
+ }
+
+ oncancel(){
+  this.acno=""
+ }
+
+ onDelete(event:any){
+  // alert(event)
+  this.ds.deleteAcc(event).subscribe((result:any)=>{
+    alert(result.Message)
+    // this.router.navigateByUrl('')
+    this.logout()
+  },
+  result=>{
+    alert(result.error.Message)
+  })
+  }
 }

@@ -1,0 +1,5 @@
+<div *ngIf="item" class="deleteconfirm">
+    <h3>Do you want to Delete your account {{item}}?</h3>
+    <button class="btn btn-ouline-info bg-info  m-3" (click)="delete()">yes</button>
+    <button class="btn btn-ouline-info bg-info" (click)="cancel()">No</button>
+</div>

@@ -1,9 +1,9 @@
-<div class="aa">
+<div class="container">
     <form action="" (ngSubmit)="Login()" [formGroup]="loginForm">
     <h2 id="in">SIGN IN</h2>
     <div class="p-2">
         <i class="fa-solid fa-key fa-1x ii"></i>
-        <input name="acnum" type="text" id="acid" [placeholder]="acnt" formControlName="acno" class="input-box">
+        <input name="acnum" type="text" id="acid" [placeholder]="acnt" formControlName="acno" class="input-box ">
         <!-- ((change)="acnoChange(event)") -->
     </div>
     <div *ngIf="this.loginForm.get('acno')?.errors&&this.loginForm.get('acno')?.touched" class="text-danger"><p>invalid Ac Number</p></div>
@@ -22,6 +22,6 @@
  <!-- <hr>
  <p class="or">or</p> -->
 </div>
-<h2 class="aa">{{aim}}</h2>
+<h2 class="aim">{{aim}}</h2>
 
 

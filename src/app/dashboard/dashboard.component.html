@@ -1,33 +1,38 @@
 <!-- <span><h1>dashboard of BankApp</h1></span> -->
-<div class="welcome"><h1>Welcome {{user}}!!</h1></div>
-<div class=""><a routerLink="/transaction">Transation History</a></div>
-    <div>
-        <h3 class="header"><u>deposit</u></h3>
-        <form action="" (ngSubmit)="deposit()" [formGroup]="depositForm">
-        <div class="container w-100 mt-2 p-3">
-        <div class="p-2">
-            <input type="text" name="acnum" id="accnum" placeholder="Ac Number" formControlName="acnum" class="form-control">
+<h6 class="time text-white">Date and Time {{sDetails | date : 'short' }}</h6>
+<div class="welcome"><h2>Welcome {{user}}!!</h2></div>
+<!-- <div class=""><a class="tHistory" routerLink="/transaction">Transation History</a></div><br> -->
+<div class=""><a class="tHistory" routerLink="/transaction">Transation History</a></div>  
+<div>
+    <form action=""  (ngSubmit)="deposit()" [formGroup]="depositForm" [ngClass]="acno?'style1':''">
+        <div class="container  mt-2 p-3">
+            <h3 class="header"><u>Deposit</u></h3>
+            <div class="p-2">
+                <input type="text" name="acnum" id="accnum" placeholder="Ac Number" formControlName="acnum" class="form-control">
+            </div>
+            <div *ngIf="this.depositForm.get('acnum')?.errors&&this.depositForm.get('acnum')?.touched" class="text-danger"><p>invalid Ac Number</p></div>
+            <div class="p-2">
+                <input type="password" name="pswrd" id="pswd" placeholder="password" formControlName="pswrd" class="form-control">
+            </div>
+            <div *ngIf="this.depositForm.get('pswrd')?.errors&&this.depositForm.get('pswrd')?.touched" class="text-danger"><p>invalid password</p></div>
+            <div class="p-2">
+                <input type="text" name="amnt" id="amnt" placeholder="Amount" formControlName="amnt" class="form-control">
+            </div>
+            <div *ngIf="this.depositForm.get('amnt')?.errors&&this.depositForm.get('amnt')?.touched" class="text-danger"><p>invalid amount</p></div>
+            <div class="p-2 text-center">
+                <button type="submit" class="btn btn-secondary border border-dark">deposit</button>
+            </div>
         </div>
-        <div *ngIf="this.depositForm.get('acnum')?.errors&&this.depositForm.get('acnum')?.touched" class="text-danger"><p>invalid Ac Number</p></div>
-        <div class="p-2">
-            <input type="password" name="pswrd" id="pswd" placeholder="password" formControlName="pswrd" class="form-control">
-        </div>
-        <div *ngIf="this.depositForm.get('pswrd')?.errors&&this.depositForm.get('pswrd')?.touched" class="text-danger"><p>invalid password</p></div>
-        <div class="p-2">
-            <input type="text" name="amnt" id="amnt" placeholder="Amount" formControlName="amnt" class="form-control">
-        </div>
-        <div *ngIf="this.depositForm.get('amnt')?.errors&&this.depositForm.get('amnt')?.touched" class="text-danger"><p>invalid amount</p></div>
-        <div class="p-2 text-center">
-            <button type="submit" class="btn btn-secondary border border-dark">deposit</button>
-        </div>
-   </div>
    </form>
-</div><br>
+</div>
 <hr>
+<div>
+    <app-deleteconfirm [item]="acno" (onCancel)="oncancel()" (onDelete)="onDelete($event)"></app-deleteconfirm>
+</div>
     <div>
-        <h3 class="header"><u>Withdraw</u></h3>
-        <form action="" (ngSubmit)="withdraw()" [formGroup]="withdrawForm">
-        <div class="container w-100 mt-2 p-3">
+        <form action="" (ngSubmit)="withdraw()" [formGroup]="withdrawForm" [ngClass]="acno?'style1':''">
+        <div class="container  mt-2 p-3">
+            <h3 class="header"><u>Withdraw</u></h3>
         <div class="p-2">
             <input type="text" name="acnumber1" id="acnum1" placeholder="Ac Number" formControlName="acnum1" class="form-control">
         </div>
@@ -46,4 +51,11 @@
    </div>
    </form>
 </div>
-<button type="button" class="btn btn-dark border" (click)="logout()">logout</button>
+
+<div class="button">
+<button type="button" class="btn btn-dark border m-5" (click)="logout()">logout</button>
+<button type="button" class=" btn btn-danger border m-5 " (click)="deleteconfirm()">Delete</button></div>
+<!-- <div>
+    <app-deleteconfirm [item]="acno" (onCancel)="oncancel()" (onDelete)="onDelete($event)"></app-deleteconfirm>
+</div> -->
+

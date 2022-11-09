@@ -10,4 +10,39 @@
 }
 .welcome{
     color: rgb(218, 218, 235);
+    margin-left: 100px;
 }
+/* @media (max-width:500px){
+    .welcome{
+    
+    }
+} */
+
+.button{
+    text-align: center;
+}
+.tHistory{
+    background-color: rgb(209, 229, 229);
+}
+.tHistory:hover{
+    color:rgb(232, 128, 244);
+}
+@media (mar-width:600px) {
+    t.tHistory{
+        float: left;
+    }
+}
+.welcome{
+    color: aqua;
+}
+.container{
+    width: 25%;
+}
+@media (max-width:500px){
+    .container,.welcome {
+        width: 100%;
+    }
+}
+/* .time{
+    float: right;
+} */
